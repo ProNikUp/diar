@@ -1,0 +1,143 @@
+Index: blocks/header1.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- blocks/header1.php	(revision a8915687877d13484eeefd6ae6314fbd3772b72b)
++++ blocks/header1.php	(date 1515079485686)
+@@ -1,10 +1,20 @@
+ <header>
+         <div id="menu1">
+-            <a href="teacher.php">
++        <a href="log.php">
++                <div>
++                    Журнал
++                </div>
++            </a>
++            <a href="table.php">
+                 <div>
+                     Табель
+                 </div>
+             </a>
++            <a href="teacher.php">
++                <div>
++                    Нагрузка
++                </div>
++            </a>
+             
+             <a href="group.php">
+                 <div>
+Index: css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- css/style.css	(revision a8915687877d13484eeefd6ae6314fbd3772b72b)
++++ css/style.css	(date 1515079498496)
+@@ -109,16 +109,16 @@
+     width: 45%;
+    
+     margin-left: 25%;
+-    margin-top: 5%; 
++    margin-top: 1%; 
+     padding: 5px;
+-   
++    cursor: pointer;
+     border-radius: 10px;
+     color: rgba(255, 255, 255, 0.829);
+ }
+ 
+-/*#authorization div:hover {
++#authorization div:hover {
+     color: rgba(255, 255, 255, 0.4);
+-}*/
++}
+ header {
+ 	width: 98%;
+ 	float: left;
+@@ -133,11 +133,11 @@
+ header #menu1{
+ 	width: 48%;
+     float: left;
+-    margin-left: 35%;
++    margin-left: 30%;
+ }
+  header #menu1 div{
+  	float: left;
+- 	margin-right: 20%;
++ 	margin-right: 10%;
+  	padding: 5px;
+  	font-family: TT Walls Rough;
+  	font-size: 150%;
+@@ -154,4 +154,13 @@
+ }
+ body #names{
+     color: #ffffff;
++}
++
++/*Стили для таблиц*/
++#tabel{
++    width:100%; /* ширина нашего блока */
++    height:100%; /* высота нашего блока */
++    background: rgba(255, 255, 255, 0); /* цвет фона, белый */
++    /*border: 1px solid #C1C1C1; /* размер и цвет границы блока */
++    overflow: auto;
+ }
+\ No newline at end of file
+Index: index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- index.php	(revision a8915687877d13484eeefd6ae6314fbd3772b72b)
++++ index.php	(date 1515078096251)
+@@ -18,7 +18,7 @@
+             document.location.href = "/student.php";
+         }
+         if (url1 == y) {
+-            document.location.href = "/teacher.php";
++            document.location.href = "/table.php";
+         }
+ 
+ 		return s, y;
+@@ -47,12 +47,12 @@
+                     <!--Ссылка-->
+                     
+                     <div id="authorization" align="center">
+-                       <!-- <a href="https://vk.com">
++                        <a onclick="care()">
+                             <div>
+                                 Авторизация
+                             </div> 
+-                        </a>-->
+-                       <input type="button" value="Авторизация" onclick="care()"> 
++                        </a>
++                       <!--<input type="button" value="Авторизация" onclick="care()">-->
+                     </div>
+                                                  
+                 </div>
+Index: teacher.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- teacher.php	(revision a8915687877d13484eeefd6ae6314fbd3772b72b)
++++ teacher.php	(date 1515076452799)
+@@ -9,7 +9,7 @@
+ <body>
+ <? 
+ require_once"blocks/header1.php";
+-?>
++?>	
+ <div id="tabel" style="color: #ffffff">
+ <script type="text/javascript">
+  tab = new Table();
+@@ -41,7 +41,5 @@
+ 	 tab.set(i,0,groups[i-1]);
+  }
+ </script>
+-
+-
+ </div>
+ </body>
+\ No newline at end of file
